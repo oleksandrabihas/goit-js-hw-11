@@ -10,6 +10,7 @@ const lightbox = new SimpleLightbox('.gallery a');
 let page = 1;
 
 refs.form.addEventListener('submit', handlerSearchImage);
+
 // -------LOAD MORE------//
 
 async function handlerSearchImage(ev) {
@@ -17,6 +18,7 @@ async function handlerSearchImage(ev) {
   refs.gallery.innerHTML = '';
   const value = refs.input.value.trim();
   if (value === '') {
+    refs.loadMoreBtn.style.display = 'none';
     return;
   } else {
     const arrayResponse = await fetchImages(value, page);
