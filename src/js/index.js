@@ -79,6 +79,9 @@ function handleIntersect(entries, observer) {
     if (entry.isIntersecting) {
       page += 1;
       const value = refs.input.value.trim();
+      if (value === '') {
+        return;
+      }
       try {
         const arrayResponse = await fetchImages(value, page);
         const totalPages = arrayResponse.totalHits;
